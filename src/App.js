@@ -4,7 +4,9 @@ import Button from "@material-ui/core/Button";
 import AppBar from "@material-ui/core/AppBar";
 import { Router, Route } from "react-router-dom";
 import Dashboard from "./DashBoard/Dashboard";
-import { signIn } from './Login/Auth';
+import { signIn } from "./Login/Auth";
+import AuthRoute from './Login/AuthRoute';
+import Profile from './Login/Profile';
 
 // function handleClick() {
 //   return (
@@ -22,8 +24,24 @@ function App() {
   const logout = () => setUser(null);
 
   return (
-
-  )
+    <Router>
+      <header>
+        <Link to="/profile">
+          <button>Profile</button>
+        </Link>
+      </header>
+      <hr />
+      <main>
+        <Switch>
+          <AuthRoute
+            authenticated={authenticated}
+            path="/profile"
+            render={props => <Profile user={user} {...props} />}
+          />
+        </Switch>
+      </main>
+    </Router>
+  );
 }
 
 // ReactDOM.render(<App />, document.querySelector('#app'));
