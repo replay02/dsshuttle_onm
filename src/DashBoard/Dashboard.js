@@ -22,6 +22,9 @@ import mainListItems from "../listItems";
 import RecentAPIUsage from "./RecentAPIUsage";
 import SumAPIUsage from "./SumAPIUsage";
 import ScatterAPIUsage from "./ScatterAPIUsage";
+
+import Realtime from "./Realtime";
+
 import UserList from "../UserList/UserList";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
@@ -122,12 +125,15 @@ const useStyles = makeStyles(theme => ({
     overflow: "auto",
     flexDirection: "column"
   },
-  fixedHeight: {
-    height: "85vh"
-  },
+ 
   fixedHeight2: {
     height: "42.5vh"
+  },
+
+  fixedHeight3: {
+    height: "35vh"
   }
+
 }));
 
 export default function Dashboard() {
@@ -146,8 +152,8 @@ export default function Dashboard() {
     setSelectedIndex(index);
   };
 
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   const fixedHeightPaper2 = clsx(classes.paper, classes.fixedHeight2);
+  const fixedHeightPaper3 = clsx(classes.paper, classes.fixedHeight3);
 
   return (
     <div className={classes.root}>
@@ -254,6 +260,17 @@ export default function Dashboard() {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
+
+          {/* 최근 API 사용 현황 */}
+          {/* {selectedIndex == 0 ? (
+              <Grid item xs={12} md={8} lg={12}>
+                <Paper className={fixedHeightPaper3}>
+                  <Realtime />
+                </Paper>
+              </Grid>
+            ) : null} */}
+
+
             {/* 최근 API 사용 현황 */}
             {selectedIndex == 0 ? (
               <Grid item xs={12} md={8} lg={12}>

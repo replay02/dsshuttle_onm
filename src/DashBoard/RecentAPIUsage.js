@@ -331,7 +331,8 @@ export default function RecentAPIUsage() {
             makeDayBarChart(values.array.length, index)
           )):null}
           
-          <Brush dataKey="name" height={20} />
+          {/* 확대 축소 */}
+          {/* <Brush dataKey="name" height={20} /> */}
           <ReferenceLine type="horizontal" value={0} stroke="#666" /> 
           
         </BarChart>
